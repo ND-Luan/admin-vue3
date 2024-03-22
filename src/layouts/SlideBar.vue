@@ -1,38 +1,33 @@
 <template lang="">
-  <v-navigation-drawer>
-    <v-list>
-      <v-list-item
-        prepend-avatar="https://cdn.vuetifyjs.com/images/john.png"
-        subtitle="john@google.com"
-        title="John Leider"
-      >
-        <template v-slot:append>
-          <v-btn icon="mdi-menu-down" size="small" variant="text"></v-btn>
-        </template>
-      </v-list-item>
-    </v-list>
-
-    <v-list :lines="false" density="compact" nav three-line>
-      <RouterLink to="/">
-        <v-list-item>
-          <template v-slot:prepend>
-            <v-icon icon="mdi-folder"></v-icon>
-          </template>
-          <v-list-item-title>Home</v-list-item-title>
-        </v-list-item>
-      </RouterLink>
-      <RouterLink to="/about">
-        <v-list-item>
-          <template v-slot:prepend>
-            <v-icon icon="mdi-folder"></v-icon>
-          </template>
-          <v-list-item-title>About</v-list-item-title>
-        </v-list-item>
-      </RouterLink>
+  <v-navigation-drawer :rail="store.isCollapse" rail-width="60">
+    <div class=" flex items-center">
+      <v-img
+        src="https://cdn.fui.vn/filedata/iot-eorder/zen-tea-logo.jpg"
+        width="100"
+        contain
+      ></v-img>
+    </div>
+    <v-divider></v-divider>
+    <v-list density="compact" nav>
+      <router-link to="/home">
+        <v-list-item
+          prepend-icon="mdi-folder"
+          title="List Item 1"
+          value="home"
+        ></v-list-item>
+      </router-link>
+      <router-link to="/about">
+        <v-list-item
+          prepend-icon="mdi-folder"
+          title="List Item 2"
+          value="about"
+        ></v-list-item>
+      </router-link>
     </v-list>
   </v-navigation-drawer>
 </template>
-<script>
-export default {};
+<script setup>
+import { useAppStore } from "../stores/AppStore";
+const store = useAppStore();
 </script>
 <style lang=""></style>

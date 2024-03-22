@@ -3,7 +3,7 @@
 </template>
 <script>
 export default {
-  name: "PageNotFoundView",
+  name: "PageNotFoundPage",
 };
 </script>
 <style lang=""></style>

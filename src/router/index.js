@@ -1,16 +1,18 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import AboutView from '../views/AboutView.vue'
-import PageNotFoundView from '../views/PageNotFoundView.vue'
+import { createRouter, createWebHistory, createRouterMatcher } from 'vue-router'
+import { AboutPage, HomePage, LoginPage, PageNotFoundPage } from '../pages'
 const routes = [
-    { path: '/',  name: "HomeView",  component: HomeView },
-    { path: '/about',  name: "AboutView",  component:() => import('../views/AboutView.vue') }, 
-    // { path: '*', name: "PageNotFound", redirect: '/404', component: PageNotFoundView }
+    {
+      path: '/',  name: "LoginPage",  component: LoginPage,
+      meta: { disallowAuthed: true }
+    },
+    { path: '/home',  name: "HomePage",  component: HomePage}, 
+    { path: '/about',  name: "AboutPage",  component: AboutPage}, 
+    // { path: '*', name: "PageNotFound", redirect: '/404', component: PageNotFoundPage }
   ]
   
 const router = createRouter({
   history : createWebHistory(), 
+  scrollBehavior: () => ({ y: 0 }),
   routes, 
 })
-
 export default router

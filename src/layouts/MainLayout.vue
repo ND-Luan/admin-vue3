@@ -1,20 +1,22 @@
-<template lang="">
-  <div>
+<template>
+  <v-layout v-if="store.isLogin">
     <SlideBar></SlideBar>
     <Appbar></Appbar>
     <v-main>
-      <RouterView></RouterView>
+      <router-view></router-view>
     </v-main>
-  </div>
+  </v-layout>
+  <v-layout v-else>
+    <LoginPage></LoginPage>
+  </v-layout>
 </template>
-<script>
+<script setup>
 import Appbar from "./Appbar.vue";
 import SlideBar from "./SlideBar.vue";
-export default {
-  components: {
-    Appbar,
-    SlideBar,
-  },
-};
+import { LoginPage } from "../pages";
+import { useAppStore } from "../stores/AppStore";
+const store = useAppStore();
+
+
 </script>
 <style lang=""></style>
