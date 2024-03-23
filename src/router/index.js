@@ -1,13 +1,12 @@
-import { createRouter, createWebHistory, createRouterMatcher } from 'vue-router'
-import { AboutPage, HomePage, LoginPage, PageNotFoundPage } from '../pages'
+import { createRouter, createWebHistory } from 'vue-router'
+import MainLayout from '../layouts/MainLayout.vue'
+import { LoginPage } from '../pages'
 const routes = [
-    {
-      path: '/',  name: "LoginPage",  component: LoginPage,
-      meta: { disallowAuthed: true }
-    },
-    { path: '/home',  name: "HomePage",  component: HomePage}, 
-    { path: '/about',  name: "AboutPage",  component: AboutPage}, 
+    { path: '/',  name: "LoginPage",  component: LoginPage, },
+    { path: '/home',  name: "HomePage",  component: MainLayout}, 
+    { path: '/about',  name: "AboutPage",  component: MainLayout}, 
     // { path: '*', name: "PageNotFound", redirect: '/404', component: PageNotFoundPage }
+    // { path: '*', redirect: '/404', hidden: true }
   ]
   
 const router = createRouter({

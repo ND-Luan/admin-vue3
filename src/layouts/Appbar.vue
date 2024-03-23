@@ -5,7 +5,7 @@
         <v-icon>mdi-arrow-collapse-left</v-icon>
       </v-btn>
     </template>
-    <v-app-bar-title>Application Bar</v-app-bar-title>
+    <v-app-bar-title>{{$route.name}}</v-app-bar-title>
   </v-app-bar>
 </template>
 <script setup>

@@ -12,14 +12,14 @@
       <router-link to="/home">
         <v-list-item
           prepend-icon="mdi-folder"
-          title="List Item 1"
+          title="Home"
           value="home"
         ></v-list-item>
       </router-link>
       <router-link to="/about">
         <v-list-item
           prepend-icon="mdi-folder"
-          title="List Item 2"
+          title="About"
           value="about"
         ></v-list-item>
       </router-link>

@@ -1,22 +1,29 @@
 <template>
-  <v-layout v-if="store.isLogin">
+  <v-layout>
     <SlideBar></SlideBar>
     <Appbar></Appbar>
-    <v-main>
-      <router-view></router-view>
+    <v-main class="app-main">
+      <router-view :key="key"></router-view>
     </v-main>
-  </v-layout>
-  <v-layout v-else>
-    <LoginPage></LoginPage>
   </v-layout>
 </template>
 <script setup>
+import { computed } from "vue";
 import Appbar from "./Appbar.vue";
 import SlideBar from "./SlideBar.vue";
-import { LoginPage } from "../pages";
 import { useAppStore } from "../stores/AppStore";
+import { useRoute } from "vue-router";
 const store = useAppStore();
+const route = useRoute();
 
-
+let key = computed(() => route.path);
 </script>
-<style lang=""></style>
+<style lang="css" scoped>
+.app-main {
+  /* 50= navbar  50  */
+  min-height: calc(100vh - 50px);
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+</style>
